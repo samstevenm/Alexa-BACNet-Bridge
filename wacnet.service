@@ -1,0 +1,15 @@
+[Unit]
+Description=WACnet
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/wacnet
+# Fix the paths below:
+ExecStart=/usr/bin/java -jar /opt/wacnet/wacnet-2.1.4-standalone.jar
+Restart=on-failure
+User=wacnet
+
+[Install]
+WantedBy=multi-user.target

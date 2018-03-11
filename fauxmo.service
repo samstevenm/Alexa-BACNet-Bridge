@@ -1,0 +1,15 @@
+[Unit]
+Description=Fauxmo
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/pyenv/versions/3.6.1/bin/
+# Fix the paths below:
+ExecStart=/opt/pyenv/versions/3.6.1/bin/fauxmo -c /var/www/html/carmelita/fauxmo_config.json -vvv
+Restart=on-failure
+User=fauxmo
+
+[Install]
+WantedBy=multi-user.target
