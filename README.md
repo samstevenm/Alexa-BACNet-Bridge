@@ -14,7 +14,7 @@ Allow Alexa to control BACnet devices.  Combines [Fauxmo](https://github.com/n8h
    1. *To-do*: Create a tool that automatically generates this file from a BACnet ID report.
 
 ##### Raspi  Python Upgrade
-##### NOTE: fauxmo only requires 3.6, I experienced failures trying to only install 3.6.1.  Ultimately I decided to remove the system installed python versions, and use pyenv to reinstall them. After that, 3.6.1 installed without a hitch.  I grabbed a beer while they were installing, but all three took under an hour on a Pi3.  YMMV.
+##### NOTE: fauxmo only requires 3.6, I experienced failures trying to only install 3.6.1 - Ultimately I decided to remove the system installed python versions. Then I used pyenv to reinstall the versions I wanted. After that, 3.6.1 installed without a hitch.  I grabbed a beer while they were installing, but all three took under an hour on a Pi3.  YMMV.
 
 ###### Install the prereqs for [pyenv](https://github.com/pyenv/pyenv) 
 ```bash 
@@ -61,18 +61,23 @@ Click on [API](http://localhost:47800/api/v1/swagger/index.html?url=/api/v1/swag
 curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{"properties": {"present-value": 1},"priority":0}' 'http://localhost:47800/api/v1/bacnet/devices/1764010/objects/5.3'
  ```
  
-###### Download and modify fauxmo_config.json [fauxmo-plugin](https://github.com/n8henrie/fauxmo-plugins)
+#### Download and modify fauxmo_config.json [fauxmo_config.json]https://github.com/samstevenm/Alexa-BACNet-Bridge/blob/master/fauxmo_config.json)
 ```bash
 cd /opt/pyenv/versions/3.6.1/bin/
 wget https://raw.githubusercontent.com/samstevenm/Alexa-BACNet-Bridge/master/fauxmo_config.json
 sudo nano fauxmo_config.json
 ```
-#### Modify `fauxmo_config.json` with your specific Instance IDs and BACnet attributes
+###### Modify `fauxmo_config.json` with `curl` commands specific to your Instance IDs and BACnet attributes
+   Note that Room 1, is an example using Lighting State (5.3) while Room 2 is using Lighting Level (2.2).
+   You can adjust the commands as necessary, to acheive your desired control.
+   1. Make sure you can control via the WACnet GUI.
+   2. Ensure you can control via `curl` from the command line (copy pasting from WACnet)
+   3. Now you can add the whole command to `fauxmo_config.json`.  Be sure to escape any double quotes in you command: `\"`
 
 ###### Manually run [Fauxmo](https://github.com/n8henrie/fauxmo): `fauxmo -c /path/to/fauxmo_config.json -vvv`
 
 #### Add Fauxmo and WACnet as system services
-###### Download
+###### Download the service files
 ```bash
 cd /etc/systemd/system
 wget https://raw.githubusercontent.com/samstevenm/Alexa-BACNet-Bridge/master/wacnet.service
@@ -82,9 +87,12 @@ sudo chmod 644 wacnet.service
 ```
 ###### NOTE: Be sure to make any required path changes to `wacnet.service` and `fauxmo.service`
 ###### Recommend using the full paths use in start scripts (systemd)
-`"$(pyenv root)"/versions/3.6.1/bin/fauxmo -c /path/to/config.json -vvv`
-`/usr/bin/java -jar /path/to/wacnet-2.1.4-standalone.jar`
-###### Enable and Start
+   - `"$(pyenv root)"/versions/3.6.1/bin/fauxmo -c /path/to/config.json -vvv`
+   - `/usr/bin/java -jar /path/to/wacnet-2.1.4-standalone.jar`
+   
+###### Enable Services and Start
+After you've tested everything manaully, you can enable and start your services, then use the Alexa App to discover new devices.
+
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl enable wacnet.service
