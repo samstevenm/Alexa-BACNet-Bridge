@@ -1,0 +1,126 @@
+{
+  "FAUXMO":{
+    "ip_address":"auto"
+  },
+  "PLUGINS":{
+    "CommandLinePlugin":{
+      "path":"/opt/pyenv/versions/3.6.1/bin/fauxmo-plugins/commandlineplugin.py",
+      "DEVICES":[
+        {
+          "name":"Entry",
+          "port":12340,
+          "on_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 1}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764001/objects/5.3'",
+          "off_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 0}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764001/objects/5.3'"
+        },
+        {
+          "name":"Hallway",
+          "port":12341,
+          "on_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 1}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764002/objects/5.3'",
+          "off_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 0}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764002/objects/5.3'"
+        },
+        {
+          "name":"Living Room",
+          "port":12342,
+          "on_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 1}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764003/objects/5.3'",
+          "off_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 0}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764003/objects/5.3'"
+        },
+        {
+          "name":"Kitchen",
+          "port":12343,
+          "on_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 1}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764004/objects/5.3'",
+          "off_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 0}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764004/objects/5.3'"
+        },
+        {
+          "name":"Dining Room",
+          "port":12344,
+          "on_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 1}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764005/objects/5.3'",
+          "off_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 0}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764005/objects/5.3'"
+        },
+        {
+          "name":"Guest Bathroom",
+          "port":12345,
+          "on_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 1}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764006/objects/5.3'",
+          "off_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 0}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764006/objects/5.3'"
+        },
+        {
+          "name":"Master Bathroom",
+          "port":12346,
+          "on_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 1}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764007/objects/5.3'",
+          "off_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 0}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764007/objects/5.3'"
+        },
+        {
+          "name":"Master Closet",
+          "port":12347,
+          "on_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 1}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764008/objects/5.3'",
+          "off_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 0}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764008/objects/5.3'"
+        },
+        {
+          "name":"Master Bedroom",
+          "port":12348,
+          "on_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 1}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764009/objects/5.3'",
+          "off_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 0}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764009/objects/5.3'"
+        },
+        {
+          "name":"Mid Bedroom",
+          "port":12349,
+          "on_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 1}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764010/objects/5.3'",
+          "off_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 0}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764010/objects/5.3'"
+        },
+        {
+          "name":"Back Bedroom",
+          "port":12350,
+          "on_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 1}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764012/objects/5.3'",
+          "off_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 0}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764012/objects/5.3'"
+        },
+        {
+          "name":"Sprinker 1",
+          "port":12351,
+          "on_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 1}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764020/objects/5.3'",
+          "off_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 0}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764012/objects/5.3'"
+        },
+        {
+          "name":"Sprinkler 2",
+          "port":12352,
+          "on_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 1}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764021/objects/5.3'",
+          "off_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 0}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764021/objects/5.3'"
+        },
+        {
+          "name":"Sprinkler 3",
+          "port":12353,
+          "on_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 1}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764022/objects/5.3'",
+          "off_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 0}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764022/objects/5.3'"
+        },
+        {
+          "name":"Sprinkler 4",
+          "port":12354,
+          "on_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 1}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764023/objects/5.3'",
+          "off_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 0}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1764023/objects/5.3'"
+        },
+        {
+          "name":"Exterior West",
+          "port":12360,
+          "on_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 1}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1761002/objects/5.3'",
+          "off_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 0}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1761002/objects/5.3'"
+        },
+        {
+          "name":"Exterior East",
+          "port":12361,
+          "on_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 1}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1761003/objects/5.3'",
+          "off_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 0}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1761003/objects/5.3'"
+        },
+        {
+          "name":"Lounge",
+          "port":12362,
+          "on_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 1}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1761004/objects/5.3'",
+          "off_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 0}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1761004/objects/5.3'"
+        },
+        {
+          "name":"Workshop",
+          "port":12364,
+          "on_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 1}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1761005/objects/5.3'",
+          "off_cmd":"curl -i -X PUT -H \"Content-Type:application/json\" -d '{\"properties\": {\"present-value\": 0}, \"priority\" : 16}' 'http://192.168.1.124:47800/api/v1/bacnet/devices/1761005/objects/5.3'"
+        }
+      ]
+    }
+  }
+}
