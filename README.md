@@ -64,7 +64,7 @@ Click on [API](http://localhost:47800/api/v1/swagger/index.html?url=/api/v1/swag
 curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{"properties": {"present-value": 1},"priority":0}' 'http://localhost:47800/api/v1/bacnet/devices/1764010/objects/5.3'
  ```
  
-#### Download and modify fauxmo_config.json [fauxmo_config.json]https://github.com/samstevenm/Alexa-BACNet-Bridge/blob/master/fauxmo_config.json)
+#### Download and modify fauxmo_config.json [fauxmo_config.json](https://github.com/samstevenm/Alexa-BACNet-Bridge/blob/master/fauxmo_config.json)
 ```bash
 cd /opt/pyenv/versions/3.6.1/bin/
 wget https://raw.githubusercontent.com/samstevenm/Alexa-BACNet-Bridge/master/fauxmo_config.json
