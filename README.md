@@ -56,6 +56,7 @@ wget https://raw.githubusercontent.com/n8henrie/fauxmo-plugins/master/commandlin
 #### Install [WACnet](https://hvac.io/docs/wacnet)
 Save `wacnet-x.x.x-standalone.jar` somewhere.  I chose `/opt/wacnet/wacnet-x.x.x-standalone.jar`
 Manually run [WACnet](https://hvac.io/docs/wacnet) run with: `java -jar wacnet-2.1.4-standalone.jar`
+If it fails, you probably need java: `sudo apt-get install default-jre`
 
 ##### Access in web broswer at: http://localhost:47800
 Click on [API](http://localhost:47800/api/v1/swagger/index.html?url=/api/v1/swagger.json#!/BACnet/put_bacnet_devices_device_id_objects_object_id) in the upper right, then BACnet, then PUT.  Here you'll have a console to send BACnet commands to your devices.  This can be used to generate the required `curl` commands for the *on_cmd*s and *off_cmd*s. A `curl` HTTP put request to turn lights ON by setting the Binary Value (BV) for "Lighting State" to a "present-value" of 1, for a given "instance-id" 1764010 would look like:
@@ -80,11 +81,13 @@ At this point, I recommend manually running [Fauxmo](https://github.com/n8henrie
 #### Add Fauxmo and WACnet as system services
 ###### Download the service files
 ```bash
+sudo useradd -r -s /bin/false wacnet #create a fake user to run wacnet
+sudo useradd -r -s /bin/false fauxmo #create a fake user to run fauxmo
 cd /etc/systemd/system
 wget https://raw.githubusercontent.com/samstevenm/Alexa-BACNet-Bridge/master/wacnet.service
 wget https://raw.githubusercontent.com/samstevenm/Alexa-BACNet-Bridge/master/fauxmo.service
 sudo chmod 644 wacnet.service
-sudo chmod 644 wacnet.service
+sudo chmod 644 fauxmo.service
 ```
 ###### NOTE: Be sure to make any required path changes to `wacnet.service` and `fauxmo.service`
 I recommend using the full paths use in start scripts (systemd)
@@ -101,3 +104,10 @@ sudo systemctl enable fauxmo.service
 sudo systemctl start wacnet.service
 sudo systemctl start fauxmo.service
 ```
+
+###### Troubleshooting Services
+Try `service wacnet status` or `service fauxmo status`
+Try `journalctl -u wacnet` or `journalctl -u fauxmo`
+If this isn't enough detail find the line that says `Restart=on-failure`
+Comment that out (with #) and restart the service.
+
